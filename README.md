@@ -198,4 +198,4 @@
 3. getViewDelegateClass（）方法返回对应View代理的class
 4. 在onPresenterCreated（）回调方法中处理逻辑，我这里使用了ViewModel来处理的数据
 
-[github地址](https://github.com/jingzhanwu/JJetpackMvpLib)
+[github：https://github.com/jingzhanwu/JJetpackMvpLib](https://github.com/jingzhanwu/JJetpackMvpLib)
