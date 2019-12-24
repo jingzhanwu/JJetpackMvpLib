@@ -200,5 +200,8 @@
 4. 在onPresenterCreated（）回调方法中处理逻辑，我这里使用了ViewModel来处理的数据
 
 [github：https://github.com/jingzhanwu/JJetpackMvpLib](https://github.com/jingzhanwu/JJetpackMvpLib)
+
 [简书：https://www.jianshu.com/u/897f53e61769](https://www.jianshu.com/u/897f53e61769)
+
 [博客:https://blog.csdn.net/qq_19979101](https://blog.csdn.net/qq_19979101)
+
