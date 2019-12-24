@@ -52,10 +52,6 @@ public class UserView extends AppViewDelegate {
         mAdapter.setNewData(user);
     }
 
-    public void onInsertClick(View v) {
-
-    }
-
     private static class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         private List<User> mData;
