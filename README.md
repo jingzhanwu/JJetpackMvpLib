@@ -3,6 +3,7 @@
 + 支持标准MVP用法，Activity或者Fragment作为P
 + 支持ViewModel的简易用法
 + 支持view复用
++ 支持AndroidX
 
 ### 如何引入
 `implementation jzw.mvp:jetpmvp:1.0.0`
