@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileVersion
+    buildToolsVersion rootProject.ext.buildVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+//加载依赖
+Map<String,String> dep=rootProject.ext.dep
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation dep.appcompat
+    implementation (dep.recyclerview){
+        exclude group: 'androidx.annotation'
+    }
+
+    //Lifecycle
+    implementation dep.lifecycleExt
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
