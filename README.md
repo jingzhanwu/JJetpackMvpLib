@@ -9,26 +9,26 @@
 
 ### 一、简易模式用法，使用ViewModel和LiveData处理数据
 ##### 1、创建数据模型model类，构造页面需要的所有数据，必须继承IModel接口
-(```)
-    public class StudentModel implements IModel {
-        private List<Student> users;
-        private String city;
+```
+   public class StudentModel implements IModel {
+           private List<Student> users;
+           private String city;
 
-        public List<Student> getUsers() {
-            return users;
-        }
+           public List<Student> getUsers() {
+               return users;
+           }
 
-        public void setUsers(List<Student> users) {
-            this.users = users;
-        }
+           public void setUsers(List<Student> users) {
+               this.users = users;
+           }
 
-        @Override
-        public void clearData() {
-            //TODO 清理数据
+           @Override
+           public void clearData() {
+               //TODO 清理数据
 
-        }
-    }
-(```)
+           }
+       }
+```
 
 ##### 2、创建处理数据的ViewModel类，必须继承BaseViewModel，负责处理网络或者本地数据
 (```)
