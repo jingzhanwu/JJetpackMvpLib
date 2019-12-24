@@ -26,6 +26,11 @@ public class UserListActivity extends ActivityPresenter<UserView> {
         return UserView.class;
     }
 
+    /**
+     * 所有的初始化工作处理完毕回调
+     *
+     * @param savedInstanceState
+     */
     @Override
     public void onPresenterCreated(Bundle savedInstanceState) {
         model = new UserModel();

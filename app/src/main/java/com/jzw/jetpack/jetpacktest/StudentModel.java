@@ -12,6 +12,7 @@ import java.util.List;
  **/
 public class StudentModel implements IModel {
     private List<Student> users;
+    private String city;
 
     public List<Student> getUsers() {
         return users;
@@ -23,6 +24,7 @@ public class StudentModel implements IModel {
 
     @Override
     public void clearData() {
+        //TODO 清理数据
 
     }
 }
