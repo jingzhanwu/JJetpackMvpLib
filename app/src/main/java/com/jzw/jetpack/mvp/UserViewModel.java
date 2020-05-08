@@ -1,4 +1,4 @@
-package com.jzw.jetpack.mvptest;
+package com.jzw.jetpack.mvp;
 
 import android.app.Application;
 

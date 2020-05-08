@@ -1,4 +1,4 @@
-package com.jzw.jetpack.jetpacktest;
+package com.jzw.jetpack.mvp;
 
 
 import java.io.Serializable;
@@ -9,12 +9,12 @@ import java.io.Serializable;
  * @change
  * @describe user 表
  **/
-public class Student implements Serializable {
+public class User implements Serializable {
 
     private String name;
     private String age;
     private String city;
-    public Student(String name, String age, String city){
+    public User(String name,String age,String city){
         this.name=name;
         this.age=age;
         this.city=city;

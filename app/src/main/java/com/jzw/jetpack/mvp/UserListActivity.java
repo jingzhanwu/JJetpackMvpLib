@@ -1,17 +1,11 @@
-package com.jzw.jetpack.mvptest;
+package com.jzw.jetpack.mvp;
 
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import com.jetpack.mvp.annotation.BindDataBinder;
 import com.jetpack.mvp.presenter.ActivityPresenter;
 import com.jzw.jetpack.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @anthor created by jzw

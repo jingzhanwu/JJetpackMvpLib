@@ -1,4 +1,4 @@
-package com.jzw.jetpack.mvptest;
+package com.jzw.jetpack.mvp;
 
 import com.jetpack.mvp.databinder.IDataBinder;
 

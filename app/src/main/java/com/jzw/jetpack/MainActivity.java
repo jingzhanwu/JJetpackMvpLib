@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jzw.jetpack.jetpacktest.StudentActivity;
-import com.jzw.jetpack.mvptest.UserListActivity;
+import com.jzw.jetpack.mvvm.StudentActivity;
+import com.jzw.jetpack.mvp.UserListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
