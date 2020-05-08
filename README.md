@@ -1,14 +1,15 @@
-## 一个支持Jetpack组件的MVP基础开发模式
+## 一个使用Jetpack设计的MVP + MVVM开发模式
 
-+ 支持标准MVP用法，Activity或者Fragment作为P
-+ 支持ViewModel的简易用法
++ 支持标准MVP用法，Activity或者Fragment作为P，可配置DataBinder
++ 支持ViewModel + liveData的简易用法，可快速实现MVVM
 + 支持view复用
 + 支持AndroidX
 
 ### 如何引入
-`implementation jzw.mvp:jetpmvp:1.0.0`
+`implementation jzw.mvp:jetpmvp:1.0.1`
 
-### 一、简易模式用法，使用ViewModel和LiveData处理数据
+
+### 一、MVVM简易模式用法，使用ViewModel和LiveData处理数据
 ##### 1、创建数据模型model类，构造页面需要的所有数据，必须继承IModel接口
 ```
    public class StudentModel implements IModel {
@@ -90,7 +91,7 @@
 3. 使用viewModel提供的接口处理数据
 4. 在onModelChanged回调方法中监听数据变化，更新UI
 
-### 二、标准MVP模式用法
+### 二、升级版MVP模式用法
 
 ##### 1、view创建，只处理UI显示部分,必须继承AppViewDelegate或者IViewDelegate接口，view只提供设置UI数据的方法或者获取控件的方法
 ```

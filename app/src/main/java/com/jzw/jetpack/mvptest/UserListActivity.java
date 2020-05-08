@@ -1,13 +1,16 @@
 package com.jzw.jetpack.mvptest;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.jetpack.mvp.annotation.BindDataBinder;
 import com.jetpack.mvp.presenter.ActivityPresenter;
+import com.jzw.jetpack.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,15 +37,25 @@ public class UserListActivity extends ActivityPresenter<UserView> {
     @Override
     public void onPresenterCreated(Bundle savedInstanceState) {
         model = new UserModel();
-        UserViewModel viewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-        viewModel.getUsers().observe(this, new Observer<List<User>>() {
+        User user = new User("刘三刀", "18", "上海");
+        model.addUser(user);
+        model.setUserName(user.getName());
+        //通知更新UI
+        notifyModelChange(model);
+    }
+
+    @Override
+    public void bindEventListener() {
+        super.bindEventListener();
+        viewDelegate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(List<User> users) {
-                //设置数据
-                model.setUsers(users);
-                //通知更新UI
+            public void onClick(View v) {
+                String userName = viewDelegate.getUserName();
+                User u = new User(userName, "23", "西安");
+                model.addUser(u);
+                model.setUserName(userName);
                 notifyModelChange(model);
             }
-        });
+        }, R.id.btnInsert);
     }
 }

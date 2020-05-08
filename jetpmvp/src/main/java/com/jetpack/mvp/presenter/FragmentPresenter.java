@@ -56,15 +56,14 @@ public abstract class FragmentPresenter<V extends IViewDelegate> extends Fragmen
             }
             //找到当前类上的注解
             BindDataBinder bindDataBinder = getClass().getAnnotation(BindDataBinder.class);
-            if (null == bindDataBinder) {
-                throw new RuntimeException("BindDataBinder is invalid");
-            }
-            if (null == dataBinderMap) {
-                dataBinderMap = new ArrayMap<>();
-                //初始化并缓存所有指定的dataBinder
-                for (Class<? extends IDataBinder> clazz : bindDataBinder.dataBinder()) {
-                    IDataBinder dataBinder = clazz.newInstance();
-                    dataBinderMap.put(clazz.getSimpleName(), dataBinder);
+            if (bindDataBinder != null) {
+                if (null == dataBinderMap) {
+                    dataBinderMap = new ArrayMap<>();
+                    //初始化并缓存所有指定的dataBinder
+                    for (Class<? extends IDataBinder> clazz : bindDataBinder.dataBinder()) {
+                        IDataBinder dataBinder = clazz.newInstance();
+                        dataBinderMap.put(clazz.getSimpleName(), dataBinder);
+                    }
                 }
             }
         } catch (IllegalAccessException e) {
@@ -84,6 +83,7 @@ public abstract class FragmentPresenter<V extends IViewDelegate> extends Fragmen
      * @return
      */
     protected IDataBinder getDataBinder(IModel model) {
+        if (null == dataBinderMap) return null;
         BindDataBinder bindDataBinder = model.getClass().getAnnotation(BindDataBinder.class);
         if (null == bindDataBinder) {
             throw new RuntimeException("Not find BindDataBinder");

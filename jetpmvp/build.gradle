@@ -27,10 +27,6 @@ Map<String,String> dep=rootProject.ext.dep
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation dep.appcompat
-    implementation (dep.recyclerview){
-        exclude group: 'androidx.annotation'
-    }
-
     //Lifecycle
     implementation dep.lifecycleExt
 
@@ -39,4 +35,4 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
 
-apply from: "upload.gradle"
+//apply from: "upload.gradle"

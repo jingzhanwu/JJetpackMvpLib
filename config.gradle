@@ -1,5 +1,4 @@
 ext {
-    appId = "com.jzw.jetpack"
     minSdk = 19
     targetVersion = 28
     versionCode = 1
@@ -14,8 +13,8 @@ ext {
 
     //通用库
     devUtil = '3.3'
-    httpRetrofit = '2.8.2'
-    mvpBase = '2.0'
+    httpRetrofit = '3.0.0'
+    mvpBase = '3.0'
     mediaLibrary = '2.0.4'
     //Retrofit2+rxjava2+okhttp3
     rxAndroid = '2.1.1'
@@ -23,8 +22,8 @@ ext {
     retrofit2 = '2.5.0'
     okhttp3 = '2.12.0'
     //Jetpack组件库
-    room='2.0.0'
-    lifecycle='2.0.0'
+    room='2.2.0'
+    lifecycle='2.2.0'
     //阿里路由
     arouter_api = '1.5.0'
     arouter_compiler = '1.2.2'
@@ -88,7 +87,7 @@ ext {
             //MVP库
             mvpBase: "com.jzw:mvpbase:$ext.mvpBase",
             //网络请求库
-            httpRetrofit: "com.jzw:http-retrofit:$ext.httpRetrofit",
+            httpRetrofit: "com.jzw.net:http:$ext.httpRetrofit",
             //Glide
             glide: "com.github.bumptech.glide:glide:$ext.glide",
             //RecyclerVie适配器

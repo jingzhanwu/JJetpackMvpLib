@@ -47,7 +47,6 @@ public abstract class ActivityPresenter<V extends IViewDelegate> extends AppComp
      */
     public abstract void onPresenterCreated(Bundle savedInstanceState);
 
-
     public ActivityPresenter() {
         initDataBinderAndViewDelegate();
     }
@@ -63,16 +62,16 @@ public abstract class ActivityPresenter<V extends IViewDelegate> extends AppComp
                 viewDelegate = delegate.newInstance();
             }
             //找到当前类上的注解
-            BindDataBinder bindDataBinder = getClass().getAnnotation(BindDataBinder.class);
-            if (null == bindDataBinder) {
-                throw new RuntimeException("BindDataBinder is invalid");
-            }
-            if (null == dataBinderMap) {
-                dataBinderMap = new ArrayMap<>();
-                //初始化并缓存所有指定的dataBinder
-                for (Class<? extends IDataBinder> clazz : bindDataBinder.dataBinder()) {
-                    IDataBinder dataBinder = clazz.newInstance();
-                    dataBinderMap.put(clazz.getSimpleName(), dataBinder);
+            BindDataBinder bindDataBinderAnnotation = getClass().getAnnotation(BindDataBinder.class);
+            //如果有添加DataBinder注解，则初始化dataBinder
+            if (bindDataBinderAnnotation != null) {
+                if (null == dataBinderMap) {
+                    dataBinderMap = new ArrayMap<>();
+                    //初始化并缓存所有指定的dataBinder
+                    for (Class<? extends IDataBinder> clazz : bindDataBinderAnnotation.dataBinder()) {
+                        IDataBinder dataBinder = clazz.newInstance();
+                        dataBinderMap.put(clazz.getSimpleName(), dataBinder);
+                    }
                 }
             }
         } catch (IllegalAccessException e) {
@@ -90,6 +89,9 @@ public abstract class ActivityPresenter<V extends IViewDelegate> extends AppComp
      * @return
      */
     protected IDataBinder getDataBinder(IModel model) {
+        if (null == dataBinderMap) {
+            return null;
+        }
         BindDataBinder bindDataBinder = model.getClass().getAnnotation(BindDataBinder.class);
         if (null == bindDataBinder) {
             throw new RuntimeException("Not find BindDataBinder");

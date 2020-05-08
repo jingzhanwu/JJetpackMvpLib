@@ -20,6 +20,7 @@ public class StudentModel implements IModel {
 
     public void setUsers(List<Student> users) {
         this.users = users;
+        city = users.get(0).getName();
     }
 
     @Override

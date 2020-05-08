@@ -3,21 +3,15 @@ package com.jzw.jetpack.repository;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-
-import android.os.AsyncTask;
-
 import com.jzw.jetpack.dao.IWordDao;
 import com.jzw.jetpack.entrys.Word;
 import com.jzw.jetpack.room.CommonRoomDatabase;
-
 import java.util.List;
-
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 

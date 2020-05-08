@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,8 @@ public class UserView extends AppViewDelegate {
     private Button btn;
     private MyAdapter mAdapter;
 
+    private EditText editText;
+
     @Override
     public int getRootLayoutId() {
         return R.layout.act_word;
@@ -37,6 +40,7 @@ public class UserView extends AppViewDelegate {
     @Override
     public void initViews() {
         super.initViews();
+        editText = get(R.id.etInput);
         recyclerView = get(R.id.recyclerView);
         btn = get(R.id.btnInsert);
 
@@ -49,7 +53,17 @@ public class UserView extends AppViewDelegate {
     }
 
     public void setUser(List<User> user) {
+        System.out.println("本次更新的数据大小：" + user.size());
         mAdapter.setNewData(user);
+    }
+
+    /**
+     * 返回 用户名
+     *
+     * @return
+     */
+    public String getUserName() {
+        return editText.getText().toString();
     }
 
     private static class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
@@ -57,7 +71,7 @@ public class UserView extends AppViewDelegate {
         private List<User> mData;
 
         public MyAdapter(List<User> data) {
-            mData = data;
+            mData = data == null ? new ArrayList<User>() : data;
         }
 
         public void setNewData(List<User> data) {
